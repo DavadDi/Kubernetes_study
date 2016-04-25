@@ -1,6 +1,8 @@
 #CentOS7 安装 Kubernetes
 
 ## 1. 整体结构图
+![参见图](http://www.do1618.com/wp-content/uploads/2016/04/k8s_all.jpg)
+
 
 ### 版本信息
 
@@ -39,7 +41,7 @@
 	sed -i '/SELINUX/s/enforcing/disabled/' /etc/selinux/config
 ###
 
-## 2.1 Master机器安装与配置
+### 2.1 Master机器安装与配置
 ###
 	#yum -y install etcd kubernetes
 ###
@@ -88,9 +90,9 @@
 	etcdctl mk /coreos.com/network/config '{"Network":"172.17.0.0/16"}'
 ###
 
-## 2.2 Slave:机器的安装与配置
+### 2.2 Slave:机器的安装与配置
 
-### 安装docker并更新重启
+#### 安装docker并更新重启
 ###
 	#yum -y install docker
 	#yum -y update
@@ -123,7 +125,7 @@
 	FLANNEL_ETCD_KEY="/coreos.com/network"
 ###
 
-### 启动服务
+#### 启动服务
 ###
 
 	for SERVICES in kube-proxy kubelet docker flanneld; do
