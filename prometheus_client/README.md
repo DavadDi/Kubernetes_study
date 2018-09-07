@@ -2,18 +2,15 @@
 
 参考： https://github.com/giantswarm/kubernetes-prometheus
 
-```
-# 注解格式
-prometheus.io/scrape，为true则会将pod作为监控目标。
-prometheus.io/path，默认为/metrics
-prometheus.io/port , 端口
-prometheus.io/scheme 默认http，如果为了安全设置了https，此处需要改为https
-```
 
-## 监控 go 应用程序
+> 注解格式
+> * prometheus.io/scrape，为true则会将pod作为监控目标。
+> * prometheus.io/path，默认为/metrics
+> * prometheus.io/port , 端口
+> * prometheus.io/scheme 默认http，如果为了安全设置了https，此处需要改为https
 
-```
 Configure Prometheus data source for Grafana.
+```
 Grafana UI / Data Sources / Add data source
 Name: prometheus
 Type: Prometheus
@@ -21,17 +18,20 @@ Url: http://prometheus:9090
 Add
 ```
 
-```
 Import Prometheus Stats:
+
+```
 Grafana UI / Dashboards / Import
 
 Grafana.net Dashboard: https://grafana.net/dashboards/2
 Load
 Prometheus: prometheus
 Save & Open
+```
+
+Import Kubernetes cluster monitoring:
 
 ```
-Import Kubernetes cluster monitoring:
 Grafana UI / Dashboards / Import
 
 Grafana.net Dashboard: https://grafana.net/dashboards/162
@@ -40,7 +40,7 @@ Prometheus: prometheus
 Save & Open
 ```
 
-其他 Go程序相关 DashBoard
+其他 Go 程序相关 DashBoard
 Go Processes https://grafana.com/dashboards/240
 Go Processes for Kubernetes  https://grafana.com/dashboards/3574
 
@@ -53,3 +53,7 @@ Go Processes for Kubernetes  https://grafana.com/dashboards/3574
 1. https://github.com/coreos/prometheus-operator
 1. [prometheus-kubernetes.yml](https://github.com/prometheus/prometheus/blob/2bd510a63e48ac6bf4971d62199bdb1045c93f1a/documentation/examples/prometheus-kubernetes.yml)
 1. [实战 | 使用Prometheus监控Kubernetes集群和应用](https://www.kancloud.cn/huyipow/kubernetes/grafana/grafana/kubernetes-apps_rev1.json)
+
+```
+
+```
