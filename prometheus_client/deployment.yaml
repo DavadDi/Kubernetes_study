@@ -1,0 +1,16 @@
+apiVersion: apps/v1beta1 # for versions before 1.6.0 use extensions/v1beta1
+kind: Deployment
+metadata:
+  name: prometheus-client-deployment
+spec:
+  replicas: 10
+  template:
+    metadata:
+      labels:
+        app: prometheus-client
+    spec:
+      containers:
+      - name: prometheus-client
+        image: dwh0403/prometheus_client_test
+        ports:
+        - containerPort: 8080
